@@ -1,0 +1,20 @@
+endpoints:
+  actuator:
+    sensitive: false
+
+management:
+  security:
+    enabled: false
+
+resilience4j.circuitbreaker:
+  backends:
+    default:
+      ringBufferSizeInClosedState: 3
+      ringBufferSizeInHalfOpenState: 3
+      waitInterval: 1000
+      failureRateThreshold: 20
+    backendService:
+      ringBufferSizeInClosedState: 2
+      ringBufferSizeInHalfOpenState: 2
+      waitInterval: 1000
+      failureRateThreshold: 50
